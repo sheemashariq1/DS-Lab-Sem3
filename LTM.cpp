@@ -1,4 +1,4 @@
-// Read(), print() , insert(row,cols,value) ,determinant(), display() functions for lower triangular matrix using pointers
+// insert(row,cols,value) ,determinant(), display() functions for lower triangular matrix using pointers
 
 #include <iostream>
 using namespace std;
