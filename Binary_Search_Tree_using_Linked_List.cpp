@@ -139,6 +139,30 @@ void postOrder(Node *r)
     cout << r->data << " ";
 }
 
+// Level Order: Visit level by level
+void levelOrder(Node *r)
+{
+    if (r == NULL)
+        return;
+
+    Node *queue[100];
+    int front = 0, rear = -1;
+
+    queue[++rear] = r;
+
+    while (front <= rear)
+    {
+        Node *temp = queue[front++];
+        cout << temp->data << " ";
+
+        if (temp->left != NULL)
+            queue[++rear] = temp->left;
+
+        if (temp->right != NULL)
+            queue[++rear] = temp->right;
+    }
+}
+
 int main()
 {
     int choice, value;
@@ -152,7 +176,8 @@ int main()
         cout << "\n4. Preorder";
         cout << "\n5. Inorder";
         cout << "\n6. Postorder";
-        cout << "\n7. Exit";
+        cout << "\n7. Levelorder";
+        cout << "\n8. Exit";
         cout << "\nEnter choice: ";
         cin >> choice;
 
@@ -199,12 +224,17 @@ int main()
             break;
 
         case 7:
+            cout << "Levelorder: ";
+            levelOrder(root);
+            break;
+
+        case 8:
             cout << "Exiting...";
             break;
 
         default:
             cout << "Invalid choice.";
         }
-    } while (choice != 7);
+    } while (choice != 8);
     return 0;
 }
